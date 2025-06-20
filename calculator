@@ -1,0 +1,36 @@
+# This is a simple calculator program that performs basic arithmetic operations.
+while True:
+    try:
+        number1 = float(input("Enter the first number: "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+sign = input("Give me the operation you would like to use on it: ")
+while sign not in ["+", "-", "*", "/"]:
+    sign = input("Please enter a valid operation (+, -, *, /): ")
+    if sign not in ["+", "-", "*", "/"]:
+        print("Invalid input. Please enter a valid operation (+, -, *, /).")
+while True:
+    try:
+        number2 = float(
+            input("Give me the second number you would like to use: "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+if sign == "+":
+    result = number1 + number2
+elif sign == "-":
+    result = number1 - number2
+elif sign == "*":
+    result = number1 * number2
+elif sign == "/":
+    if number2 == 0:
+        print("Error: Division by zero is not allowed.")
+        result = None
+    else:
+        result = number1 / number2
+
+if result is not None:
+    print(f"The result of {number1} {sign} {number2} is {result}")
